@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pitch: #0a1210;
+  --color-surface: #0f1a16;
+  --color-card: #132820;
+  --color-border: #1e3a2e;
+  --color-field: #22c55e;
+  --color-coral: #fb7185;
+  --color-gold: #fbbf24;
+  --color-floodlight: #f0f5f3;
+  --color-muted: #64796e;
+
+  --font-display: var(--font-bebas-neue), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --animate-pulse-live: pulse-live 2s ease-in-out infinite;
+  --animate-flicker: flicker 4s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-fade-in: fade-in 0.3s ease-out;
+
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  @keyframes flicker {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.06; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+:root {
+  --background: #0a1210;
+  --foreground: #f0f5f3;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Broadcast command-center panel */
+.cmd-panel {
+  background: rgba(19, 40, 32, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 197, 94, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cmd-panel:hover {
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+/* Scoreboard card */
+.score-card {
+  background: linear-gradient(145deg, rgba(15, 26, 22, 0.9), rgba(10, 18, 16, 0.95));
+  border: 1px solid rgba(34, 197, 94, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 8px 32px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.score-card:hover {
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 0 20px rgba(34,197,94,0.08);
+}
+
+/* Floodlight grid overlay */
+.floodlight-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(34, 197, 94, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+}
+
+/* Pitch mesh gradient */
+.pitch-gradient {
+  background-color: #0a1210;
+  background-image:
+    radial-gradient(at 10% 20%, rgba(34, 197, 94, 0.06) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(251, 191, 36, 0.04) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(251, 113, 133, 0.03) 0px, transparent 60%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0a1210; }
+::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(34, 197, 94, 0.4); }
+
+/* Chat bubbles */
+.chat-user {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.chat-ai {
+  background: rgba(15, 26, 22, 0.8);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Live indicator dot */
+.live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+/* Trophy gold shimmer for headers */
+.gold-shimmer {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
